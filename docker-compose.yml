@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+    epod:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        env_file: deploy.env
+        deploy:
+            resources:
+                limits:
+                    cpus: 1.25
+                    memory: 1024M
+                reservations:
+                    memory: 128M
